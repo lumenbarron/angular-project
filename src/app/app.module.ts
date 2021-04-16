@@ -10,6 +10,8 @@ import { InicioComponent } from './inicio/inicio.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { EquipoService } from './equipo.service';
 import { EquipoComponent } from './equipo/equipo.component';
+import { CardPokeComponent } from './card-poke/card-poke.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'contact', component: ContactComponent },
@@ -28,10 +30,12 @@ const routes: Routes = [
     ContactComponent,
     InicioComponent,
     NosotrosComponent,
-    EquipoComponent
+    EquipoComponent,
+    CardPokeComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
   ],

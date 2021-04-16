@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PokemonService} from '../services/pokemon.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
-  constructor() { }
+  pokemons:any[] = [];
+
+  constructor(
+    private dataService : PokemonService
+  ) { }
 
   ngOnInit(): void {
+    this.dataService.getPokemon()
+    .subscribe((response: any) => {
+      console.log(response);
+      response.results.forEach(result => {
+        this.dataService.getMoreData(result.name)
+        .subscribe((uniResponse: any) => {
+          this.pokemons.push(uniResponse);
+          console.log(this.pokemons);
+          
+        })
+      });
+    })
   }
 
 }

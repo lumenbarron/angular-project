@@ -1,3 +1,7 @@
 <div class="bg-dark text-white py-5">
     <h1>Inicio</h1>
+    <ul *ngFor="let pokemon of pokemons">
+        <li>{{pokemon.name}} </li>
+        <img [src]="pokemon.sprites.front_default">
+    </ul>
 </div>
