@@ -1,8 +1,5 @@
+<!-- <div class="container-fluid" >
 
-
-
-<div class="container-fluid" >
-<!-- Navbar -->
   <nav class="navbar bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
@@ -25,11 +22,37 @@
 
   <button class="btn btn-warning" (click)="display='primero'">toggle</button>
 
-  <p class="text-danger d-block" [ngClass] = "{'d-none':display=='primero'}">parraf tres</p>
+  <p class="text-danger d-block" [ngClass] = "{'d-none':display=='primero'}">parraf tres</p> -->
 
+<!-- <ul>
+  <li *ngFor="let curso of cursos">{{curso}} </li>
+</ul> -->
 
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Type</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let animal of animals; index as i">
+      <th scope="row">{{i}} </th>
+      <td>{{animal.tipo}} </td>
+      <td>{{animal.nombre}}</td>
+      <td>{{animal.edad}}</td>
+    </tr>
+
+  </tbody>
+</table> -->
+<!--ruta estatico -->
 <app-navbar></app-navbar>
-<app-footer></app-footer>
-</div>
+<!--ruta Dinamico -->
+<router-outlet>
+  
+</router-outlet>
 
-<router-outlet></router-outlet>
+<app-footer></app-footer>
+

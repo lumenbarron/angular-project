@@ -1,0 +1,11 @@
+<div>
+  <p>nosotros works!</p>
+
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let eqi of equipo, index as i">
+        <h6>Tipo: {{eqi.tipo}} </h6>
+        <h6>Nombre: {{eqi.nombre}} </h6>
+        <a [routerLink]="['/equipo', i]"> ver más...</a>
+</li>
+  </ul>
+</div>
