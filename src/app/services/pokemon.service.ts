@@ -11,8 +11,10 @@ export class PokemonService {
   ) { }
 
   //Get Pokemon
-  getPokemon(){
-    return this.http.get('https://pokeapi.co/api/v2/pokemon')
+  getPokemon(limit : number , offset : number){
+    console.log('offset', offset,'limit', limit)
+    
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
   }
 
   //Get more pokemons

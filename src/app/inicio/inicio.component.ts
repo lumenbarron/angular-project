@@ -9,15 +9,29 @@ import {PokemonService} from '../services/pokemon.service';
 export class InicioComponent implements OnInit {
 
   pokemons:any[] = [];
+  page = 0;
+  totalPokemons:number;
 
   constructor(
     private dataService : PokemonService
   ) { }
 
   ngOnInit(): void {
-    this.dataService.getPokemon()
+    this.getPokemon();
+  }
+
+  //Get Pokemons
+  getPokemon(){
+    console.log(this.page, 'page');
+    let pageNumber = parseInt(this.page + '0') 
+   console.log(pageNumber) 
+    this.dataService.getPokemon( 10, pageNumber)
     .subscribe((response: any) => {
       console.log(response);
+      this.totalPokemons = response.count;
+      // this.page++; 
+      console.log(this.totalPokemons);
+      
       response.results.forEach(result => {
         this.dataService.getMoreData(result.name)
         .subscribe((uniResponse: any) => {

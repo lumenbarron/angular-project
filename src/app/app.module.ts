@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,11 @@ import { EquipoService } from './equipo.service';
 import { EquipoComponent } from './equipo/equipo.component';
 import { CardPokeComponent } from './card-poke/card-poke.component';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { MonkeyStyleGuideModule } from 'monkey-style-guide';
+import {MatInputModule} from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UppercasePipe } from './pipes/uppercase.pipe';
 
 const routes: Routes = [
   { path: 'contact', component: ContactComponent },
@@ -31,13 +36,18 @@ const routes: Routes = [
     InicioComponent,
     NosotrosComponent,
     EquipoComponent,
-    CardPokeComponent
+    CardPokeComponent,
+    UppercasePipe
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    NgxPaginationModule,
+    MonkeyStyleGuideModule,
     RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
   ],
   providers: [EquipoService],
   bootstrap: [AppComponent]

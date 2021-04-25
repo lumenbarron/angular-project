@@ -1,7 +1,15 @@
-<div class="bg-dark text-white py-5">
+<div class="">
     <h1>Inicio</h1>
-    <ul *ngFor="let pokemon of pokemons">
-        <li>{{pokemon.name}} </li>
+
+    <ul *ngFor="let pokemon of pokemons | paginate : { itemsPerPage : 10, currentPage: page, totalItems: totalPokemons}">
+        <li>{{pokemon.name | uppercase }} </li>
+        <p>type : {{pokemon.types[0].type.name}} </p>
         <img [src]="pokemon.sprites.front_default">
     </ul>
 </div>
+<monkey-button type="primary" color="theme">
+    Primary
+  </monkey-button>
+
+<pagination-controls (pageChange)="page = $event; pokemons = []; getPokemon()"></pagination-controls>
+

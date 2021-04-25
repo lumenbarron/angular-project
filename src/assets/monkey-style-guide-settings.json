@@ -1,0 +1,9 @@
+{
+    "title": "Monkey Exchange",
+    "colors": {
+        "theme": "#3244ca",
+        "error": "#e70c0c",
+        "warning": "#efa30e",
+        "success": "#00875a"
+    }
+}

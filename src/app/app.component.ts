@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MonkeyStyleGuideSettingsService } from 'monkey-style-guide';
 
 @Component({
   selector: 'app-root',
@@ -26,4 +27,8 @@ export class AppComponent {
     }
 
   ]
+
+  constructor(private settingsService: MonkeyStyleGuideSettingsService) {
+    this.settingsService.boostrap('');
+  }
 }
